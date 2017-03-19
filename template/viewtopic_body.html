@@ -24,6 +24,35 @@
 	<p class="linkmcp">[ <a href="{U_MCP}">{L_MCP}</a> ]</p>
 <!-- ENDIF -->
 </div>
+<script>
+    window.onload = resizeimg;
+    function resizeimg()
+    {
+       if (document.getElementsByTagName)
+       {
+		 var images = document.getElementsByTagName('img');
+
+          for (var i = 1; i < images.length; i++)
+          {
+            var im = images[i];
+
+             if (im.width > 630)
+             {
+                im.style.width = '630px';               
+              	im.onclick = function()
+					{ 
+						window.open(this.src,'fullscale','width=630,height=420,scrollbars=1,resizable=1');
+						pop.focus();
+					};
+
+                if (document.all) im.style.cursor = 'hand';
+                if (!document.all) im.style.cursor = 'pointer';
+                im.title = 'Klikněte pro zvětšení';
+             }
+          }
+       }
+    }
+</script>
 
 <br clear="all" /><br />
 
